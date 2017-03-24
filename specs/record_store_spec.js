@@ -33,7 +33,8 @@ describe('The Record Store', function () {
     store.sell_record(record_2);
     assert.equal(15, store.balance);
     assert.deepEqual([ 'a record by Colin for only 10'], store.list_inventory() );
+  });
+  it('should provide a sales report', function(){
+    assert.equal("STORE REPORT: \nFUNDS: 15\nSTOCK VALUE: 10", store.sit_rep());
   })
-
-
 });
