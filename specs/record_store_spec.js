@@ -8,5 +8,8 @@ describe('The Record Store', function () {
   });
   it('Should have a city', function () {
     assert.equal("Glasgow", store.city);
-  })
+  });
+  it('should have 0 balance to start', function () {
+    assert.equal(0, store.balance);
+  });
 });
