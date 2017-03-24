@@ -8,5 +8,8 @@ describe('The Record', function () {
   });
   it('should have an title of a record', function(){
     assert.equal("a record", record.title);
+  });
+  it('should have a price of 10', function(){
+    assert.equal(10, record.price);
   })
 })
