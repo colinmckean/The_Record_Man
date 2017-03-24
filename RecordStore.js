@@ -15,6 +15,13 @@ RecordStore.prototype = {
       resultArr.push(record.record_details());
     });
     return resultArr;
-  }
+  },
+  sell_record: function (record) {
+   var rec_sold = this.inventory.find(function(obj){
+    return record === obj;
+  }, this);
+   this.balance += rec_sold.price;
+   this.inventory.splice(this.inventory.indexOf(rec_sold),1);
+ }
 };
 module.exports = RecordStore;
