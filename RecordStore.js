@@ -10,9 +10,11 @@ RecordStore.prototype = {
     this.inventory.push(record);
   },
   list_inventory: function() {
+    var resultArr = [];
     this.inventory.forEach(function(record){
-      console.log(record.record_details());
-    })
+      resultArr.push(record.record_details());
+    });
+    return resultArr;
   }
 };
 module.exports = RecordStore;
