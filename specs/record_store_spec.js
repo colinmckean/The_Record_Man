@@ -1,8 +1,12 @@
 var RecordStore  = require('../RecordStore');
+var Record = require('../Record');
 var assert  = require('assert');
 
 describe('The Record Store', function () {
   var store = new RecordStore("Colins Record Store", "Glasgow");
+  var record_1 = new Record("Colin", "a record", 10);
+  var record_2 = new Record("John", "another record", 15);
+  var record_3 = new Record("Alan", "a third record", 20);
   it('Should have a name', function () {
     assert.equal("Colins Record Store", store.name);
   });
@@ -15,4 +19,10 @@ describe('The Record Store', function () {
   it('should have an empty inventory to start', function () {
     assert.deepEqual([], store.inventory);
   });
+  it('should increase inventory size when a record is added', function () {
+    store.add_to_inventory(record_1);
+    assert.equal(1, store.inventory.length);
+    assert.deepEqual([{ artist: 'Colin', title: 'a record', price: 10 }], store.inventory);
+  });
+
 });
