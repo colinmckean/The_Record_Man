@@ -6,4 +6,7 @@ describe('The Record Store', function () {
   it('Should have a name', function () {
     assert.equal("Colins Record Store", store.name);
   });
+  it('Should have a city', function () {
+    assert.equal("Glasgow", store.city);
+  })
 });
