@@ -12,4 +12,7 @@ describe('The Record Store', function () {
   it('should have 0 balance to start', function () {
     assert.equal(0, store.balance);
   });
+  it('should have an empty inventory to start', function () {
+    assert.deepEqual([], store.inventory);
+  });
 });
