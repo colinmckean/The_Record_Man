@@ -24,5 +24,11 @@ describe('The Record Store', function () {
     assert.equal(1, store.inventory.length);
     assert.deepEqual([{ artist: 'Colin', title: 'a record', price: 10 }], store.inventory);
   });
+  it('should print out all record details of stock in its inventory', function () {
+    store.add_to_inventory(record_2);
+    assert.deepEqual([ 'a record by Colin for only 10',
+  'another record by John for only 15' ], store.list_inventory() );
+  });
+
 
 });
