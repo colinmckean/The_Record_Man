@@ -27,8 +27,13 @@ describe('The Record Store', function () {
   it('should print out all record details of stock in its inventory', function () {
     store.add_to_inventory(record_2);
     assert.deepEqual([ 'a record by Colin for only 10',
-  'another record by John for only 15' ], store.list_inventory() );
+      'another record by John for only 15' ], store.list_inventory() );
   });
+  it('should sell records to customers and increase balance', function(){
+    store.sell_record(record_2);
+    assert.equal(15, store.balance);
+    assert.deepEqual([ 'a record by Colin for only 10'], store.list_inventory() );
+  })
 
 
 });
