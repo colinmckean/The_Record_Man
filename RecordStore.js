@@ -8,7 +8,11 @@ RecordStore = function(name, city) {
 RecordStore.prototype = {
   add_to_inventory: function(record){
     this.inventory.push(record);
-
+  },
+  list_inventory: function() {
+    this.inventory.forEach(function(record){
+      console.log(record.record_details());
+    })
   }
 };
 module.exports = RecordStore;
