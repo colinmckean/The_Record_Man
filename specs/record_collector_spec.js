@@ -10,4 +10,7 @@ describe('The RecordCollector', function(){
     assert.equal(0, customer.record_collection.length);
     assert.deepEqual([], customer.record_collection);
   });
+  it('should start with 50 cash', function () {
+    assert.equal(50, customer.cash);
+  });
 });
