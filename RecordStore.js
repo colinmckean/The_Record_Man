@@ -17,19 +17,18 @@ RecordStore.prototype = {
     return resultArr;
   },
   sell_record: function (record) {
-   var rec_sold = this.inventory.find(function(obj){
-    return record === obj;
-  }, this);
-   this.balance += rec_sold.price;
-   this.inventory.splice(this.inventory.indexOf(rec_sold),1);
- },
- sit_rep: function(){
-  var sum = 0;
-  //Create a method that reports the finnancial situation of the Store. Balance and value of inventory.
-  this.inventory.forEach(function(record){
-    sum += record.price;
-  });
-  return "STORE REPORT: \nFUNDS: " + this.balance + "\nSTOCK VALUE: " + sum;
- }
+    var rec_sold = this.inventory.find(function(obj){
+      return record === obj;
+    }, this);
+    this.balance += rec_sold.price;
+    this.inventory.splice(this.inventory.indexOf(rec_sold),1);
+  },
+  sit_rep: function(){
+    var sum = 0;
+    this.inventory.forEach(function(record){
+      sum += record.price;
+    });
+    return "STORE REPORT: \nFUNDS: " + this.balance + "\nSTOCK VALUE: " + sum;
+  }
 };
 module.exports = RecordStore;

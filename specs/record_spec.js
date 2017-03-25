@@ -15,4 +15,4 @@ describe('The Record', function () {
   it('should return a string of record details.', function () {
     assert.equal("a record by Colin for only 10", record.record_details());
   });
-})
+});
