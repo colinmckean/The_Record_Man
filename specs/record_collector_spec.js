@@ -13,4 +13,9 @@ describe('The RecordCollector', function(){
   it('should start with 50 cash', function () {
     assert.equal(50, customer.cash);
   });
+  it('should increase record collection when buying a record', function(){
+    customer.buy_record(record_1);
+    assert.equal(1, customer.record_collection.length);
+    assert.deepEqual([ { artist: 'Colin', title: 'a record', price: 10 } ], customer.record_collection);
+  });
 });
