@@ -31,4 +31,7 @@ describe('The RecordCollector', function(){
     customer.sell_record(record_1);
     assert.equal(50, customer.cash);
   });
+  it('should remove record from collection once sold.', function() {
+    assert.deepEqual([], customer.record_collection);
+  });
 });
