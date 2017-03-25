@@ -20,5 +20,11 @@ describe('The RecordCollector', function(){
   });  
   it('should reduce funds when buying a record', function(){
     assert.equal(40, customer.cash);
+  });  
+  it('should not be able to buy a record if they do not have funds', function(){
+    customer.buy_record(record_2);
+    assert.equal(40, customer.cash);
+    assert.equal(1, customer.record_collection.length);
+    assert.deepEqual([ { artist: 'Colin', title: 'a record', price: 10 } ], customer.record_collection);
   });
 });
