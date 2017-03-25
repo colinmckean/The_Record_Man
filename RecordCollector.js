@@ -9,6 +9,13 @@ RecordCollector.prototype =  {
       this.record_collection.push(record);
       this.cash -= record.price
     }
+  },
+  sell_record: function(record) {
+    var rec_sold = this.record_collection.find(function(obj){
+      return record === obj;
+    }, this);
+    this.cash += rec_sold.price;
+    this.record_collection.splice(this.record_collection.indexOf(rec_sold),1);
   }
 };
 
