@@ -6,7 +6,7 @@ Record = function(artist, title, price) {
 
 Record.prototype= {
   record_details: function () {
-    return this.title + " by " + this.artist + " for only " + this.price
+    return this.title + " by " + this.artist + " for only £" + this.price
   }
 };
 
