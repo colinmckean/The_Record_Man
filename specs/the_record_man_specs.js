@@ -40,4 +40,16 @@ describe('The RecordMan facilitates the buying and selling of records.', functio
     assert.equal(50, customer.cash);
     assert.equal(0, store.balance);
   });
+
+  it('every time the store buys a record form a collector it adds on 10% to the sale price.', function () {
+    recordman.sell_record_to_collector(record, customer);
+    assert.equal(22, store.balance);
+    assert.equal(28, customer.cash);
+    recordman.buy_record_from_collector(record, customer);
+    assert.equal(0, store.balance);
+    assert.equal(50, customer.cash);
+    recordman.sell_record_to_collector(record, customer);
+    assert.equal(24.2, store.balance);
+    assert.equal(25.8, customer.cash);
+  });
 });
