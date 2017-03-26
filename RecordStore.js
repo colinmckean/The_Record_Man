@@ -6,13 +6,17 @@ RecordStore = function(name, city) {
 }
 
 RecordStore.prototype = {
-  add_to_inventory: function(record){
+  add_to_inventory: function (record) {
     this.inventory.push(record);
   },
-  list_inventory: function() {
-    var resultArr = [];
-    this.inventory.forEach(function(record){
-      resultArr.push(record.record_details());
+  buy_record: function (record) {
+    this.balance -= record.price;
+    record.price +=  (record.price * 0.10);
+    this.add_to_inventory(record);
+  },
+  list_inventory: function () {
+    var resultArr = this.inventory.map(function(record){
+      return record.record_details();
     });
     return resultArr;
   },
@@ -23,11 +27,10 @@ RecordStore.prototype = {
     this.balance += rec_sold.price;
     this.inventory.splice(this.inventory.indexOf(rec_sold),1);
   },
-  sit_rep: function(){
-    var sum = 0;
-    this.inventory.forEach(function(record){
-      sum += record.price;
-    });
+  sit_rep: function () {
+    var sum = this.inventory.reduce(function(acc, val) {
+      return acc + val.price;
+    }, 0);
     return "STORE REPORT: \nFUNDS: " + this.balance + "\nSTOCK VALUE: " + sum;
   }
 };
