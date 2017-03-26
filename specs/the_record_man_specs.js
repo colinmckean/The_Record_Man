@@ -24,4 +24,10 @@ describe('The RecordMan facilitates the buying and selling of records.', functio
     assert.deepEqual([ { artist: 'Big Al', title: 'Big Al\'s hits', price: 20 } ], customer.record_collection);
     assert.deepEqual([], store.inventory);
   });
+
+  it('should reflect the sale in the store balance and customer cash', function(){
+    assert.equal(20, store.balance);
+    assert.equal(30, customer.cash);
+  });
+
 });
